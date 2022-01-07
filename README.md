@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Typescripts
 
 ## TODO
@@ -28,3 +29,6 @@
 
 
 ### make handlebars
+=======
+TypeScripts
+>>>>>>> cbfc32f14b337dbc126d1c56dc8a1b4855819d0a
