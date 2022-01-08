@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const sequelize = require('sequelize');
+const hbs = require('express-handlebars');
 
 // import sequelize connection
 const seq = require('./config/connection');
@@ -15,6 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // view engine setup
+app.engine('hbs', hbs({extname:'hbs', defaultLayout: 'layout/main', layoutsDir:__dirname +'/views/layouts/'}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 

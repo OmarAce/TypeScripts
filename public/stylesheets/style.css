@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.cursor {
+  background-color: green;
+}
+
+.done {
+  color: #bbb;
+}
+
+#typing {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.hidden {
+  display: none;
+}
