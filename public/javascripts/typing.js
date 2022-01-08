@@ -25,6 +25,7 @@ const startGame = () => {
   });
 
   let cursorIndex = 0;
+  let errors = 0;
   let cursorCharacter = characters[cursorIndex];
   cursorCharacter.classList.add("cursor");
 
@@ -43,16 +44,24 @@ const startGame = () => {
       cursorCharacter.classList.remove("cursor");
       cursorCharacter.classList.add("done");
       cursorCharacter = characters[++cursorIndex];
-      console.log(cursorIndex)
+    }
+    // if wrong
+    else if (key !== cursorCharacter.innerText && keyPressed >= 48) {
+      cursorCharacter.classList.remove("cursor");
+      cursorCharacter.classList.add("wrong");
+      cursorCharacter = characters[++cursorIndex];
+      ++errors;
     }
 
     // Backspace
-    if (cursorIndex > 0 && keyPressed === 8 || cursorIndex > 0 && keyPressed === 46 ) {
+    if (cursorIndex > 0 && keyPressed === 8) {
       cursorCharacter.classList.remove("cursor");
       cursorCharacter = characters[--cursorIndex];
       cursorCharacter.classList.add("cursor");
       cursorCharacter.classList.remove("done");
+      cursorCharacter.classList.remove("wrong");
       console.log(cursorIndex)
+      console.log(keyPressed);
     }
 
     if (cursorIndex >= characters.length) {
@@ -63,7 +72,7 @@ const startGame = () => {
       const numberOfWords = text.split(" ").length;
       const wps = numberOfWords / seconds;
       const wpm = wps * 60.0;
-      document.getElementById("stats").innerText = `wpm = ${parseInt(wpm)}`;
+      document.getElementById("stats").innerText = `wpm = ${parseInt(wpm)} \n errors = ${errors}`;
       document.removeEventListener("keydown", keydown);
       startGameBtn.classList.remove("hidden");
       return;
