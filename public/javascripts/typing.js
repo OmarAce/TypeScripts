@@ -77,7 +77,9 @@ const startGame = () => {
       const wpm = wps * 60.0;
       if (errors === 0) {
         score = characters.length * (wpm + 20);
-      } else score = characters.length * (wpm / errors);
+      } else if (errors >= 1) { 
+        score = characters.length * (wpm / errors);
+      };
       document.getElementById("stats").innerText = `score = ${score} \n wpm = ${wpm} \n errors = ${errors}`;
       document.removeEventListener("keydown", keydown);
       startGameBtn.classList.remove("hidden");
