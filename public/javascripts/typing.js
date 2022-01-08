@@ -59,9 +59,12 @@ const startGame = () => {
       cursorCharacter = characters[--cursorIndex];
       cursorCharacter.classList.add("cursor");
       cursorCharacter.classList.remove("done");
-      cursorCharacter.classList.remove("wrong");
       console.log(cursorIndex)
       console.log(keyPressed);
+      if (cursorCharacter.classList.contains("wrong")) {
+        cursorCharacter.classList.remove("wrong");
+        --errors;
+      }
     }
 
     if (cursorIndex >= characters.length) {
@@ -70,9 +73,12 @@ const startGame = () => {
       const delta = endTime - startTime;
       const seconds = delta / 1000;
       const numberOfWords = text.split(" ").length;
-      const wps = numberOfWords / seconds;
+      const wps = parseInt(numberOfWords / seconds);
       const wpm = wps * 60.0;
-      document.getElementById("stats").innerText = `wpm = ${parseInt(wpm)} \n errors = ${errors}`;
+      if (errors === 0) {
+        score = characters.length * (wpm + 20);
+      } else score = characters.length * (wpm / errors);
+      document.getElementById("stats").innerText = `score = ${score} \n wpm = ${wpm} \n errors = ${errors}`;
       document.removeEventListener("keydown", keydown);
       startGameBtn.classList.remove("hidden");
       return;
