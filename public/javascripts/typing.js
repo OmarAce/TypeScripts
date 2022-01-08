@@ -25,6 +25,7 @@ const startGame = () => {
   });
 
   let cursorIndex = 0;
+  let errors = 0;
   let cursorCharacter = characters[cursorIndex];
   cursorCharacter.classList.add("cursor");
 
@@ -35,10 +36,35 @@ const startGame = () => {
       startTime = new Date();
     }
 
+    console.log(key);
+    const keyPressed = event.keyCode;
+
+    // if correct
     if (key === cursorCharacter.innerText) {
       cursorCharacter.classList.remove("cursor");
       cursorCharacter.classList.add("done");
       cursorCharacter = characters[++cursorIndex];
+    }
+    // if wrong
+    else if (key !== cursorCharacter.innerText && keyPressed >= 48) {
+      cursorCharacter.classList.remove("cursor");
+      cursorCharacter.classList.add("wrong");
+      cursorCharacter = characters[++cursorIndex];
+      ++errors;
+    }
+
+    // Backspace
+    if (cursorIndex > 0 && keyPressed === 8) {
+      cursorCharacter.classList.remove("cursor");
+      cursorCharacter = characters[--cursorIndex];
+      cursorCharacter.classList.add("cursor");
+      cursorCharacter.classList.remove("done");
+      console.log(cursorIndex)
+      console.log(keyPressed);
+      if (cursorCharacter.classList.contains("wrong")) {
+        cursorCharacter.classList.remove("wrong");
+        --errors;
+      }
     }
 
     if (cursorIndex >= characters.length) {
@@ -47,9 +73,12 @@ const startGame = () => {
       const delta = endTime - startTime;
       const seconds = delta / 1000;
       const numberOfWords = text.split(" ").length;
-      const wps = numberOfWords / seconds;
+      const wps = parseInt(numberOfWords / seconds);
       const wpm = wps * 60.0;
-      document.getElementById("stats").innerText = `wpm = ${parseInt(wpm)}`;
+      if (errors === 0) {
+        score = characters.length * (wpm + 20);
+      } else score = characters.length * (wpm / errors);
+      document.getElementById("stats").innerText = `score = ${score} \n wpm = ${wpm} \n errors = ${errors}`;
       document.removeEventListener("keydown", keydown);
       startGameBtn.classList.remove("hidden");
       return;

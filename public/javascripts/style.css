@@ -5,9 +5,13 @@ body {
   .cursor {
     background-color: aqua;
   }
-  
+
   .done {
     color: #bbb;
+  }
+
+  .wrong {
+    color: red;
   }
   
   #typing {
