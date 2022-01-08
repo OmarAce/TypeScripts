@@ -60,3 +60,4 @@ const startGame = () => {
 
   document.addEventListener("keydown", keydown);
 };
+

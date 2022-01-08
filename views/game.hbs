@@ -1,23 +1,36 @@
 {{!-- main game --}}
-<div class="align-center">
-        <div class="alert progress">
-            <div class="progress-meter" style="width: 75%"></div>
-        </div>
-    
+
+
+<div class="align-center "style="margin-top:5px;">
+  <div class="alert progress">
+    <div class="progress-meter" style="width: 75%"></div>
+  </div>
+
 </div>
-        <div class="card" style="width: 90%; height: 24rem;">
-           
-            <div class="card-body">
-                <h5 class="card-title">typing prompt goes here</h5>
-                <p class="card-text">Render typing prompt</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 90%; height: 24rem;">
-           
-            <div class="card-body">
-                <h5 class="card-title">Virtual keyboard</h5>
-                <p class="card-text">Render virtual keyboard</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
+<div class="card" id='modules' style="width: 90%; height: 24rem;margin-bottom:20px;">
+
+  <div class="card-body">
+    <h5 class="card-title">{{prompt}}</h5>
+  </div>
+</div>
+<div class="card" id='modules' style="width: 90%; height: 24rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">{{typingTest}}</h5>
+  </div>
+</div>
+
+
+<style>
+  #modules{
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  #parentDiv{
+    
+    
+  }
+</style>
