@@ -35,10 +35,24 @@ const startGame = () => {
       startTime = new Date();
     }
 
+    console.log(key);
+    const keyPressed = event.keyCode;
+
+    // if correct
     if (key === cursorCharacter.innerText) {
       cursorCharacter.classList.remove("cursor");
       cursorCharacter.classList.add("done");
       cursorCharacter = characters[++cursorIndex];
+      console.log(cursorIndex)
+    }
+
+    // Backspace
+    if (cursorIndex > 0 && keyPressed === 8 || cursorIndex > 0 && keyPressed === 46 ) {
+      cursorCharacter.classList.remove("cursor");
+      cursorCharacter = characters[--cursorIndex];
+      cursorCharacter.classList.add("cursor");
+      cursorCharacter.classList.remove("done");
+      console.log(cursorIndex)
     }
 
     if (cursorIndex >= characters.length) {
