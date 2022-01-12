@@ -1,3 +1,4 @@
+
 const typingDiv = document.getElementById("typing");
 const statsDiv = document.getElementById("stats");
 const startGameBtn = document.getElementById("start-game");
@@ -9,6 +10,7 @@ const paragraphs = [
   `This is a test prompt 4`,
   `This is a test prompt 5`,
 ];
+
 
 const startGame = () => {
   startGameBtn.classList.add("hidden");
@@ -77,7 +79,7 @@ const startGame = () => {
       const wpm = wps * 60.0;
       if (errors === 0) {
         score = characters.length * (wpm + 20);
-      } else if (errors >= 1) { 
+      } else if (errors >= 1) {
         score = characters.length * (wpm / errors);
       };
       document.getElementById("stats").innerText = `score = ${score} \n wpm = ${wpm} \n errors = ${errors}`;
@@ -91,3 +93,4 @@ const startGame = () => {
 
   document.addEventListener("keydown", keydown);
 };
+startGameBtn.addEventListener("click", startGame)
