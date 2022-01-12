@@ -24,4 +24,8 @@ CREATE TABLE css (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     prompt TEXT 
 );
+CREATE TABLE typescript (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    prompt TEXT 
+);
 

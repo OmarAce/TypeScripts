@@ -1,3 +1,6 @@
+const typingDiv = document.getElementById("typing");
+const statsDiv = document.getElementById("stats");
+const startGameBtn = document.getElementById("start-game");
 
 const paragraphs = [
   `This is a test prompt 1`,
@@ -7,10 +10,16 @@ const paragraphs = [
   `This is a test prompt 5`,
 ];
 
+// Checks for language choice
+$(".language").on("click", function() {
+  let language = $(this).attr("data-id")
+  console.log(language);
+  $(".language").addClass("hidden");
+  $("#language").addClass("hidden");
+  $("#start-game").removeClass("hidden");
+})
+
 const startGame = () => {
-  const typingDiv = document.getElementById("typing");
-  const statsDiv = document.getElementById("stats");
-  const startGameBtn = document.getElementById("start-game");
   startGameBtn.remove();
   typingDiv.innerHTML = "";
   statsDiv.innerHTML = "";
@@ -91,4 +100,3 @@ const startGame = () => {
 
   document.addEventListener("keydown", keydown);
 };
-

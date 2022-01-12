@@ -109,8 +109,7 @@ VALUES
 
 </body> "),
 
-("
-    <body>
+("<body>
 
 
   <header>
