@@ -1,3 +1,8 @@
+//Dependencies
+//const util = require("util");
+//const mysql = require("mysql2");
+
+//Declared
 const typingDiv = document.getElementById("typing");
 const statsDiv = document.getElementById("stats");
 const startGameBtn = document.getElementById("start-game");
@@ -17,6 +22,7 @@ $(".language").on("click", function() {
   $(".language").addClass("hidden");
   $("#language").addClass("hidden");
   $("#start-game").removeClass("hidden");
+  //`SELECT prompt FROM ${language} ORDER BY RAND() LIMIT 1`
 })
 
 const startGame = () => {
