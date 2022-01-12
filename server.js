@@ -3,6 +3,7 @@ const express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const hbs = require('express-handlebars');
 const sequelize = require('sequelize');
 
 // import sequelize connection
@@ -17,6 +18,7 @@ const PORT = process.env.PORT || 3001;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.engine('hbs', hbs.engine({extname:'hbs', defaultLayout: 'layout/main', layoutsDir:__dirname +'/views/'}));
 
 // middleware
 app.use(logger('dev'));
