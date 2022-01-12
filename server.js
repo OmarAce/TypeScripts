@@ -1,15 +1,17 @@
-var createError = require('http-errors');
+const createError = require('http-errors');
 const express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
+
+const hbs = require('express-handlebars');
 const sequelize = require('sequelize');
 const seq = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 // import sequelize connection
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -17,6 +19,7 @@ const PORT = process.env.PORT || 3001;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.engine('hbs', hbs.engine({extname:'hbs', defaultLayout: 'layout/main', layoutsDir:__dirname +'/views/'}));
 
 const sess = {
   secret: 'super-secret',
