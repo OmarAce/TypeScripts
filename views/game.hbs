@@ -1,5 +1,6 @@
 {{!-- main game --}}
 
+    <script src="/javascripts/typing.js"></script>
 
 <div class="align-center "style="margin-top:5px;">
   <div class="alert progress">
@@ -16,7 +17,10 @@
 <div class="card" id='modules' style="width: 90%; height: 24rem;">
 
   <div class="card-body">
-    <h5 class="card-title">{{typingTest}}</h5>
+    
+    <div id="stats"></div>
+    <div id="typing"></div>
+    <button id="start-game" onclick="startGame();">Click to Start Game</button>
   </div>
 </div>
 

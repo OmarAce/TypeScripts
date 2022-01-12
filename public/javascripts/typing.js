@@ -1,6 +1,3 @@
-const typingDiv = document.getElementById("typing");
-const statsDiv = document.getElementById("stats");
-const startGameBtn = document.getElementById("start-game");
 
 const paragraphs = [
   `This is a test prompt 1`,
@@ -11,7 +8,10 @@ const paragraphs = [
 ];
 
 const startGame = () => {
-  startGameBtn.classList.add("hidden");
+  const typingDiv = document.getElementById("typing");
+  const statsDiv = document.getElementById("stats");
+  const startGameBtn = document.getElementById("start-game");
+  startGameBtn.remove();
   typingDiv.innerHTML = "";
   statsDiv.innerHTML = "";
 
