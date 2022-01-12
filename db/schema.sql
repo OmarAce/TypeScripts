@@ -1,8 +1,11 @@
 DROP DATABASE IF EXISTS typing_db;
 CREATE DATABASE typing_db;
 
+USE typing_db;
+
 CREATE TABLE user (
-    username VARCHAR(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(30)
     score INT
 );
 CREATE TABLE english (
@@ -21,10 +24,4 @@ CREATE TABLE css (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     prompt TEXT 
 );
-=======
--- DROP DATABASE
-DROP DATABASE IF EXISTS typing_db;
-
--- CREATE DATABASE
-CREATE DATABASE typing_db;
 
