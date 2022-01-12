@@ -2,11 +2,11 @@ var createError = require('http-errors');
 const express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const session = require('express-session');
 const sequelize = require('sequelize');
-
-// import sequelize connection
 const seq = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
+// import sequelize connection
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,8 +18,18 @@ const PORT = process.env.PORT || 3001;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+const sess = {
+  secret: 'super-secret',
+  cookie: {},
+  resave: false,
+  saveUninitialzed: true,
+  store: new SequelizeStore({
+    db: seq
+  })
+}
+
 // middleware
-app.use(logger('dev'));
+app.use(session(sess))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
