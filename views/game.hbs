@@ -1,7 +1,7 @@
 {{!-- main game --}}
 
-    <script src="/javascripts/typing.js"></script>
-    <link rel="stylesheet" href="../public/javascripts/style.css"
+    
+    
 
 <div class="align-center "style="margin-top:5px;">
   <div class="alert progress">
@@ -11,17 +11,14 @@
 </div>
 <div class="card" id='modules' style="width: 90%; height: 24rem;margin-bottom:20px;">
 
-  <div class="card-body">
-    <h5 class="card-title">{{prompt}}</h5>
-  </div>
+{{>prompt}}
 </div>
 <div class="card" id='modules' style="width: 90%; height: 24rem;">
 
   <div class="card-body">
+    {{>keyboard}}
+    {{!-- <h5 class="card-title">{{prompt}}</h5> --}}
     
-    <div id="stats"></div>
-    <div id="typing"></div>
-    <button id="start-game" onclick="startGame();">Click to Start Game</button>
   </div>
 </div>
 
@@ -35,36 +32,5 @@
 
   }
 
-  #parentDiv{
-  }
-
-  body {
-    text-align: center;
-  }
-
-  .cursor {
-    background-color: aqua;
-  }
-
-  .done {
-    color: #bbb;
-  }
-
-  .wrong {
-    color: red;
-  }
-
-  #typing {
-    margin: 0 auto;
-    width: 300px;
-  }
-
-  #stats {
-    margin: 0 auto;
-    width: 300px;
-  }
-
-  .hidden {
-    display: none;
-  }
+  
 </style>

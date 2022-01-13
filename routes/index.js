@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/game', function(req, res, next) {
-  res.render('game', { prompt: 'prompt goes here(from db)', typingTest:'Omars code goes here'});
+  res.render('game', { prompt: 'prompt goes here(from db)'});
 });
 
 
