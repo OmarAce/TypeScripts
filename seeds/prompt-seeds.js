@@ -2,7 +2,7 @@ const { Prompt } = require('../models');
 
 const promptData = [
     {
-        prompt: "const helloWOrld = 'Hello World';\nlet hiWorld = 'Hi World';\n\nallowsAnyString(helloWorld);\nallowsAnyString(hiWorld);",
+        prompt: "const helloWorld = 'Hello World';\nlet hiWorld = 'Hi World';\n\nallowsAnyString(helloWorld);\nallowsAnyString(hiWorld);",
         language_id: 1, //typescript
     },
     {
