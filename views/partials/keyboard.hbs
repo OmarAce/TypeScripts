@@ -1,5 +1,5 @@
 <div class="bgKeyboard">
-  <div class="startMsg">Press any key to Continue...</div>
+  
   <div class="keyboard">
     <div class="row numberLine">
       <div class="blacktick">`</div>
@@ -191,8 +191,8 @@
     height: 350px;
     background-color: rgb(255, 219, 174);
     border-radius: 20px;
-    margin: 0;
-    position: absolute;
+    margin: auto;
+    position: relative;
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 0);
@@ -616,44 +616,8 @@
     document.querySelector('.frontSlash').innerHTML = '/';
   }
 
-  window.onload = () => {
-    document.addEventListener('keyup', (event) => {
-      //function mainly responsible for recognizing the first key press and fading out start message and then fading in the main keyboard
-      const x = event.which || event.keyCode;
-      if (typeof x == 'number') {
-        document.querySelector('div.startMsg').classList.toggle('hideToggle');
-        document.querySelector('div.keyboard').classList.toggle('showToggle');
-        // $('div.startMsg').fadeOut('fast');
-        // $('div.keyboard').fadeIn('slow');
-      }
-      document.getElementById('textArea').disabled = false; // enabling textarea after the first keyup event
-      document.querySelector('#textArea').focus(); //textarea will be focused automatically when any key is pressed
-    }, { once: true });
-
-    document.querySelector('i.material-icons').addEventListener("click", () => {
-      // function for copying contents in textArea
-      const copyText = document.getElementById("textArea");
-      copyText.select();
-      copyText.setSelectionRange(0, 99999)
-      document.execCommand('copy');
-    });
-
-    window.addEventListener('mouseup', () => {
-      document.querySelector('#textArea').focus(); //textarea will be focused automatically when even when the focus is out textarea, so textarea will never lose focus because that is what is important
-    });
-
-
-    document.querySelector('#themeMode').addEventListener('click', () => {
-      // function which will work accordingly checking if theme-mode button is on or off which will change the theme of whole application
-      document.body.classList.toggle('bodyDark');
-      document.querySelector('.bgKeyboard').classList.toggle('bgKeyboardDark');
-      document.querySelector('.themeMode').classList.toggle('themeModeDark');
-      document.querySelector('label').classList.toggle('labelDark');
-      document.querySelector('.startMsg').classList.toggle('startMsgDark');
-      document.querySelector('i.material-icons').classList.toggle('material-icons-dark');
-      document.querySelector('#textArea').classList.toggle('textAreaDark');
-    });
-  }
+  document.querySelector('div.keyboard').classList.toggle('showToggle');
+  
 
   // variable to keep checking if capslock on or off and if it is either of them then certain capslocked or non-capslocked keys will be shown on the window
   let isCapslockOn;
