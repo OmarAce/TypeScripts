@@ -7,38 +7,38 @@ const paragraphs = [
   `This is a test prompt 5`,
 ];
 
-const startGame = () => {
+window.addEventListener('keydown', () => {
   const typingDiv = document.getElementById("typing");
   const statsDiv = document.getElementById("stats");
   const startGameBtn = document.getElementById("start-game");
   startGameBtn.remove();
   typingDiv.innerHTML = "";
   statsDiv.innerHTML = "";
-
+  
   const text = paragraphs[parseInt(Math.random() * paragraphs.length)];
-
+  
   const characters = text.split("").map((char) => {
     const span = document.createElement("span");
     span.innerText = char;
     typingDiv.appendChild(span);
     return span;
   });
-
+  
   let cursorIndex = 0;
   let errors = 0;
   let cursorCharacter = characters[cursorIndex];
   cursorCharacter.classList.add("cursor");
-
+  
   let startTime = null;
-
+  
   const keydown = ({ key }) => {
     if (!startTime) {
       startTime = new Date();
     }
-
+    
     console.log(key);
     const keyPressed = event.keyCode;
-
+    
     // if correct
     if (key === cursorCharacter.innerText) {
       cursorCharacter.classList.remove("cursor");
@@ -52,7 +52,7 @@ const startGame = () => {
       cursorCharacter = characters[++cursorIndex];
       ++errors;
     }
-
+    
     // Backspace
     if (cursorIndex > 0 && keyPressed === 8) {
       cursorCharacter.classList.remove("cursor");
@@ -66,7 +66,7 @@ const startGame = () => {
         --errors;
       }
     }
-
+    
     if (cursorIndex >= characters.length) {
       // game ended
       const endTime = new Date();
@@ -85,10 +85,12 @@ const startGame = () => {
       startGameBtn.classList.remove("hidden");
       return;
     }
-
+    
     cursorCharacter.classList.add("cursor");
   };
-
+  
   document.addEventListener("keydown", keydown);
-};
+}
+)
+;
 
