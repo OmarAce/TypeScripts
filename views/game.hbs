@@ -1,35 +1,18 @@
 {{!-- main game --}}
 
-    <script src="/javascripts/typing.js"></script>
-    <script type="module" src="/javascripts/keyboard.js"></script>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-
-<div class="align-center "style="margin-top:5px;">
-  <div class="alert progress">
     <div class="progress-meter" style="width: 75%"></div>
   </div>
-
 </div>
 <div class="card" id='modules' style="width: 90%; height: 24rem;margin-bottom:20px;">
 
-  <div class="card-body">
-    <h5 class="card-title">{{prompt}}</h5>
-  </div>
+{{>prompt}}
 </div>
 <div class="card" id='modules' style="width: 90%; height: 24rem;">
 
   <div class="card-body">
+    {{>keyboard}}
+    {{!-- <h5 class="card-title">{{prompt}}</h5> --}}
     
-    <div id="stats"></div>
-    <div id="typing"></div>
-      <div id="language"><p>What Language would you like to choose?</p>
-        <button class="language" data-id="typescript">Typescript</button>
-        <button class="language" data-id="javascript">Javascript</button>
-        <button class="language" data-id="html">HTML</button>
-        <button class="language" data-id="css">CSS</button>
-        <button class="language" data-id="english">English</button>
-      </div>
-    <button id="start-game" onclick="startGame();">Click to Start Game</button>
   </div>
 </div>
 
@@ -41,6 +24,4 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
 </style>

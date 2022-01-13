@@ -1,4 +1,3 @@
-
 //Declared
 const typingDiv = document.getElementById("typing");
 const statsDiv = document.getElementById("stats");
@@ -67,22 +66,22 @@ const startGame = (language) => {
     typingDiv.appendChild(span);
     return span;
   });
-
+  
   let cursorIndex = 0;
   let errors = 0;
   let cursorCharacter = characters[cursorIndex];
   cursorCharacter.classList.add("cursor");
-
+  
   let startTime = null;
-
+  
   const keydown = ({ key }) => {
     if (!startTime) {
       startTime = new Date();
     }
-
+    
     console.log(key);
     const keyPressed = event.keyCode;
-
+    
     // if correct
     if (key === cursorCharacter.innerText) {
       cursorCharacter.classList.remove("cursor");
@@ -96,7 +95,7 @@ const startGame = (language) => {
       cursorCharacter = characters[++cursorIndex];
       ++errors;
     }
-
+    
     // Backspace
     if (cursorIndex > 0 && keyPressed === 8) {
       cursorCharacter.classList.remove("cursor");
@@ -110,7 +109,7 @@ const startGame = (language) => {
         --errors;
       }
     }
-
+    
     if (cursorIndex >= characters.length) {
       // game ended
       const endTime = new Date();
@@ -129,9 +128,11 @@ const startGame = (language) => {
       startGameBtn.classList.remove("hidden");
       return;
     }
-
+    
     cursorCharacter.classList.add("cursor");
   };
-
+  
   document.addEventListener("keydown", keydown);
+  window.addEventListener('keydown', startGame)
 };
+
