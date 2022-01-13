@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 
-const squelize = require('../config/connection.js');
+const sequelize = require('../config/connection');
 
 class Language extends Model {}
 
@@ -19,7 +19,7 @@ Language.init(
         },
     },
     {
-        squelize,
+        sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
