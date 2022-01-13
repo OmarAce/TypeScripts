@@ -18,7 +18,7 @@ const promptData = [
         language_id: 2, 
     },
     {
-        prompt: " <!DOCTYPE html>\n<html>\n<head>\n<title>Page Title</title>\n</head>\n<body>\n<h1>This is a Heading</h1>\n<p>This is a paragraph.</p>\n</body>\n</html>",
+        prompt: "<!DOCTYPE html>\n<html>\n<head>\n<title>Page Title</title>\n</head>\n<body>\n<h1>This is a Heading</h1>\n<p>This is a paragraph.</p>\n</body>\n</html>",
         language_id: 3, //html
     },
     {
