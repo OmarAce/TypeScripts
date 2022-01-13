@@ -38,11 +38,10 @@ $(".language").on("click", function() {
   $(".language").addClass("hidden");
   $("#language").addClass("hidden");
   $("#start-game").removeClass("hidden");  
-  startGame($(this).attr("data-id"));
+  startGame(language);
 })
 
 const startGame = (language) => {
-  startGameBtn.remove();
   typingDiv.innerHTML = "";
   statsDiv.innerHTML = "";
 
