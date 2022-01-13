@@ -31,7 +31,7 @@ const english = [
 let source = [];
 
 // Checks for language choice
-$(".language").on("click", function() {
+$(document).on("click", ".language", function() {
   let language = $(this).attr("data-id")
   console.log(language);
   $(".language").addClass("hidden");
@@ -133,6 +133,6 @@ const startGame = (language) => {
   };
   
   document.addEventListener("keydown", keydown);
-  window.addEventListener('keydown', startGame)
+  //window.addEventListener('keydown', startGame)
 };
 
