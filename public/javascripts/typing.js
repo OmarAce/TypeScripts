@@ -1,6 +1,5 @@
 //Dependencies
-//const util = require("util");
-//const mysql = require("mysql2");
+const sequelize = require('../config/connection');
 
 //Declared
 const typingDiv = document.getElementById("typing");
@@ -21,9 +20,13 @@ $(".language").on("click", function() {
   console.log(language);
   $(".language").addClass("hidden");
   $("#language").addClass("hidden");
-  $("#start-game").removeClass("hidden");
-  //`SELECT prompt FROM ${language} ORDER BY RAND() LIMIT 1`
+  $("#start-game").removeClass("hidden");  
+  findChoice(language);
 })
+
+const findChoice = (language) => {
+  console.log (language);
+}
 
 const startGame = () => {
   startGameBtn.remove();
