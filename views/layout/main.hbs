@@ -7,20 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/1e23fbffec.js" crossorigin="anonymous"></script>
-    <link rel ='stylesheet' type="text/html" href="/public/javascripts/style.css">
+    
     <link rel ='stylesheet' type="text/html" href="/public/stylesheets/style.css">
     <title>{{ title }}</title>
 </head>
 
 <body>
     
-    <header class="top-bar ">
+    <header class="top-bar topnav" id="myTopnav" >
         <div class="top-bar-left">
-            <ul class="menu">                
+            <ul class="menu">
+                
                 <li class="menu-text"><a href="http://localhost:3001/"><i class="fas fa-laptop-code"></i><span>  Type{Scripts}</span></a></li>
+                <li><a href="http://localhost:3001/"><i class="fas fa-home"></i><span>  Home</span></a></li>
                 <li><a href="http://localhost:3001/game"><i class="fas fa-keyboard"></i><span>  Type!</span></a></li>
                 <li><a href="http://localhost:3001/highscores"><i class="fas fa-crown"></i><span>  Highscores</span></a></li>
-                <li><a href="#"><i class="fas fa-book"></i><span>  Stats</span></a></li>
                 <li><a href="http://localhost:3001/about"><i class="fas fa-user-friends"></i><span>  About</span></a></li>
             </ul>
         </div>
@@ -30,6 +31,18 @@
 
             </ul>
         </div>
+        
+        <style>
+            .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+            .topnav a.active {
+                background-color: #04AA6D;
+                color: white;
+            }
+            
+        </style>
     </header>
 
 
@@ -49,15 +62,8 @@
 
 
    
+
         
 </body>
 
 </html>
-
-<style>
-    main{
-    background-image: url('../../assets/cloudbackground.jpg');
-    background-attachment: fixed;
-    background-size: cover;
-    }
-</style>

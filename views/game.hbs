@@ -4,17 +4,13 @@
     
 {{!-- red timer bar at top --}}
 
-<div class="align-center "style="margin-top:5px;">
-  <div class="alert progress">
 
-    <div class="progress-meter" style="width: 75%"></div>
-  </div>
-</div>
-<div class="card" id='modules' style="width: 90%; height: 24rem;margin-bottom:20px;">
+
+<div class="card" id='modules' style="width: 90%; height: 25rem;margin-top:10px; margin-bottom:20px;">
 
   {{>prompt}}
 </div>
-<div class="card" id='modules' style="width: 90%; height: 24rem;">
+<div class="card" id='modules' style="width: 90%; height: 25rem;">
 
   <div class="card-body">
     {{>keyboard}}
@@ -31,5 +27,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+  }
+  body{
+    background-image: url('/assets/cloudbackground.jpg');
+    background-size: cover;
+  }
 
 </style>
