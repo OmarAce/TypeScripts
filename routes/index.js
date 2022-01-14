@@ -14,9 +14,9 @@ router.get('/game', function(req, res, next) {
   res.render('game');
 });
 
-router.get('/highscores', function(req, res, next) {
-  res.render('highscore');
-});
+// router.get('/highscores', function(req, res, next) {
+//   res.render('highscore');
+// });
 
 router.get('/highscores', function(req, res, next) {
   res.render('highscores', { title: 'Highscores' });
