@@ -7,9 +7,15 @@ router.post('/register', async function(req, res) {
     const userData = await User.create({
       username,
       password
+    });
+    const userDataClean = await userData.get({plain:true})
+    
+    req.session.userId = userDataClean.id;
+    req.session.username = userDataClean.username;
+    req.session.loggedIn = true
+    req.session.save(()=> {
+      res.status(200).json(userData)
     })
-    const user = userData.get({ plain: true })
-    res.status(200).json(user)
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
@@ -39,15 +45,16 @@ router.post('/login', async function(req, res) {
       console.log('cannot find user')
       return res.status(400).json({ message: 'We cannot find the user!' })
     }
+    const userDataClean = await userData.get({plain:true})
 
     const validPassword = userData.checkPassword(password)
 
     if (!validPassword) {
       console.log('cannot find user')
       return res.status(400).json({ message: 'Incorrect username or password!' })
-    }
-
-    req.session.userId = userData.id
+    };
+    req.session.userId = userDataClean.id;
+    req.session.username = userDataClean.username;
     req.session.loggedIn = true
 
     req.session.save(() => {
