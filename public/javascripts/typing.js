@@ -79,7 +79,6 @@ const startGame = (language) => {
       startTime = new Date();
     }
     
-    console.log(key);
     const keyPressed = event.keyCode;
     
     // if correct
@@ -127,10 +126,12 @@ const startGame = (language) => {
       // document.removeEventListener("keydown", keydown);
       // alert("score " + score)
       // startGameBtn.classList.remove("hidden");
-      $.ajax("/highscores", {
-        method: "POST",
-        data: {score}
-      }).then(data => console.log(data))
+      if (score) {
+        $.ajax("/highscores", {
+          method: "POST",
+          data: {score}
+        }).then(data => console.log(data))
+        }
     }
     
     cursorCharacter.classList.add("cursor");
