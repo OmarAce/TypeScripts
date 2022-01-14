@@ -1,5 +1,6 @@
 var express = require('express');
 const { Scores } = require('../models');
+const { Users } = require('../models');
 var router = express.Router();
 
 router.get('/login', async function(req, res) {
@@ -20,13 +21,10 @@ router.get('/highscores', async function(req, res, next) {
     order: [["score", "DESC"]],
     limit: 10,
   }).then(async function (highscores) {
-    // res.render('highscore', {
-    //   scores: highscores,
-    //   user: user_id,
-    // })
     const highscoresClean = highscores.map(a => a.get({plain:true}))
+    console.log(highscoresClean[0])
     res.render('highscore', {highscores: highscoresClean});
-  })
+  });
 });
 
 //data route
@@ -35,13 +33,8 @@ router.get('/api/highscores', async function(req, res) {
     order: [["score", "DESC"]],
     limit: 10,
   }).then(function (highscores) {
-    // res.render('highscore', {
-    //   scores: highscores,
-    //   user: user_id,
-    // })
     res.json(highscores)
   })
-  // res.render('highscores', { title: 'Highscores' });
 });
 
 router.post("/highscores", async function(req,res){
