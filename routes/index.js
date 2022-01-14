@@ -1,6 +1,6 @@
 var express = require('express');
 const { Scores } = require('../models');
-const { Users } = require('../models');
+const { User } = require('../models');
 var router = express.Router();
 
 router.get('/login', async function(req, res) {
@@ -19,10 +19,11 @@ router.get('/game', function(req, res, next) {
 router.get('/highscores', async function(req, res, next) {
   const scores = await Scores.findAll({
     order: [["score", "DESC"]],
+    include: [{model: User}],
     limit: 10,
   }).then(async function (highscores) {
     const highscoresClean = highscores.map(a => a.get({plain:true}))
-    console.log(highscoresClean[0])
+    console.log(highscoresClean)
     res.render('highscore', {highscores: highscoresClean});
   });
 });

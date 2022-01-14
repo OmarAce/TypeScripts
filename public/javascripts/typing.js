@@ -124,7 +124,7 @@ const startGame = (language) => {
         score = parseInt(characters.length * (cpm / errors));
       };
       document.getElementById("stats").innerText = `score = ${score} \n Number of Characters per Minute = ${cpm} \n errors = ${errors}`;
-      document.removeEventListener("keydown", keydown);
+      // document.removeEventListener("keydown", keydown);
       // alert("score " + score)
       // startGameBtn.classList.remove("hidden");
       $.ajax("/highscores", {
