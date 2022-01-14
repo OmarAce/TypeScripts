@@ -26,9 +26,10 @@ router.get('/highscores', async function(req, res, next) {
     // })
     const highscoresClean = highscores.map(a => a.get({plain:true}))
     res.render('highscore', {highscores: highscoresClean});
-  )
+  })
 });
 
+//data route
 router.get('/api/highscores', async function(req, res) {
  const scores = await Scores.findAll({
     order: [["score", "DESC"]],
