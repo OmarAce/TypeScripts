@@ -6,10 +6,10 @@
     </tr>
   </thead>
   <tbody>
-    {{#each highscores}}
+    {{#each highscores as |hs| }}
     <tr>
-      <td> {{user_id}} </td>
-      <td> {{score}} </td>
+      <td> {{hs.User.username}} </td>
+      <td> {{hs.score}} </td>
     </tr>
     {{/each}}
 
