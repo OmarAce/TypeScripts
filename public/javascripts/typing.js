@@ -31,12 +31,12 @@ const english = [
 let source = [];
 
 // Checks for language choice
-$(document).on("click", ".language", function() {
+$(document).on("click", ".language", function () {
   let language = $(this).attr("data-id")
   console.log(language);
   $(".language").addClass("hidden");
   $("#language").addClass("hidden");
-  $("#start-game").removeClass("hidden");  
+  $("#start-game").removeClass("hidden");
   startGame(language);
 })
 
@@ -66,21 +66,21 @@ const startGame = (language) => {
     typingDiv.appendChild(span);
     return span;
   });
-  
+
   let cursorIndex = 0;
   let errors = 0;
   let cursorCharacter = characters[cursorIndex];
   cursorCharacter.classList.add("cursor");
-  
+
   let startTime = null;
-  
+
   const keydown = ({ key }) => {
     if (!startTime) {
       startTime = new Date();
     }
-    
+
     const keyPressed = event.keyCode;
-    
+
     // if correct
     if (key === cursorCharacter.innerText) {
       cursorCharacter.classList.remove("cursor");
@@ -94,7 +94,7 @@ const startGame = (language) => {
       cursorCharacter = characters[++cursorIndex];
       ++errors;
     }
-    
+
     // Backspace
     if (cursorIndex > 0 && keyPressed === 8) {
       cursorCharacter.classList.remove("cursor");
@@ -108,7 +108,7 @@ const startGame = (language) => {
         --errors;
       }
     }
-    
+
     if (cursorIndex >= characters.length) {
       // game ended
       const endTime = new Date();
@@ -116,27 +116,27 @@ const startGame = (language) => {
       const seconds = delta / 1000;
       const numberOfCharacters = text.split("").length;
       const cps = parseInt(numberOfCharacters / seconds);
-      const cpm = cps * 60.0;
+      const cpm = (cps * 60.0) / 5;
       if (errors === 0) {
-        score = parseInt(characters.length * (cpm + 20));
-      } else if (errors >= 1) { 
-        score = parseInt(characters.length * (cpm / errors));
+        score = parseInt(characters.length * (cpm * 5 + 20));
+      } else if (errors >= 1) {
+        score = parseInt(characters.length * (cpm * 5 / errors));
       };
-      document.getElementById("stats").innerText = `score = ${score} \n Number of Characters per Minute = ${cpm} \n errors = ${errors}`;
+      document.getElementById("stats").innerText = `score = ${score} \n Words per Minute = ${cpm} \n errors = ${errors}`;
       // document.removeEventListener("keydown", keydown);
       // alert("score " + score)
       // startGameBtn.classList.remove("hidden");
       if (score) {
         $.ajax("/highscores", {
           method: "POST",
-          data: {score}
+          data: { score }
         }).then(data => console.log(data))
-        }
+      }
     }
-    
+
     cursorCharacter.classList.add("cursor");
   };
-  
+
   document.addEventListener("keydown", keydown);
 };
 
