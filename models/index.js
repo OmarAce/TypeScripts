@@ -10,10 +10,9 @@ Prompt.belongsTo(Language);
 // Languages have many prompts
 Language.hasMany(Prompt);
 
-// Users have many scores
-User.hasMany(Scores);
+Scores.belongsTo(User);
 
-Scores.belongTo(User);
+User.hasMany(Scores);
 
 module.exports = {
     Language,

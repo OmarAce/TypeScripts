@@ -18,11 +18,13 @@ Scores.init(
             allowNull: false,
         },
 
-        username: {
-            type: DataTypes.STRING,
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+          //referencing the 'User' model
             references: {
-                model: 'User',
-                key: 'username' 
+              model: 'user',
+              key: 'id'
             },
         },
     },

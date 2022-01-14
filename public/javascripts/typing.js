@@ -1,3 +1,5 @@
+const db = require('../../config/connection')
+
 //Declared
 const typingDiv = document.getElementById("typing");
 const statsDiv = document.getElementById("stats");
@@ -126,17 +128,7 @@ const startGame = (language) => {
       document.getElementById("stats").innerText = `score = ${score} \n Number of Characters per Minute = ${cpm} \n errors = ${errors}`;
       document.removeEventListener("keydown", keydown);
       startGameBtn.classList.remove("hidden");
-      $.ajax({
-        type: 'POST',
-        url: '',//POST SCORE ROUTE
-        data: {
-          'score': `${score}`,
-          'username': `${username}`
-        },
-        success: function(){
-          console.log("score sent");
-        }
-      });
+      // db.create?
       return;
     }
     
