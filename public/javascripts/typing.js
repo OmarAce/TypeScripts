@@ -136,5 +136,7 @@ const startGame = (language) => {
   };
   
   document.addEventListener("keydown", keydown);
-};
+}
+)
+;
 
