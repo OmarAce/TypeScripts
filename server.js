@@ -24,7 +24,9 @@ app.engine('hbs', hbs.engine({extname:'hbs', defaultLayout: 'layout/main', layou
 
 const sess = {
   secret: 'super-secret',
-  cookie: {},
+  cookie: {
+    maxAge: 3600000
+  },
   resave: false,
   saveUninitialzed: true,
   store: new SequelizeStore({

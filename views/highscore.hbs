@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th width="200">User</th>
+      <th>TOP 10 SCORES</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each highscores}}
+    <tr>
+      <td> {{user_id}} </td>
+      <td> {{score}} </td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>

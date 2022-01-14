@@ -14,6 +14,7 @@ Scores.belongsTo(User);
 
 User.hasMany(Scores);
 
+// model exports
 module.exports = {
     Language,
     Prompt,
