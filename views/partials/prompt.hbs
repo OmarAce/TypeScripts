@@ -1,19 +1,27 @@
-<script src="/javascripts/typing.js"></script>
+
+<link rel="stylesheet" href="/stylesheets/style.css">
 <div class="card-body">
     <div id="stats"></div>
     <div id="typing"></div>
-    <button id="start-game" >Press any Key to Begin</button>
+      <div id="language"><p>What Language would you like to choose?</p>
+        <button class="language" data-id="typescript">Typescript</button>
+        <button class="language" data-id="javascript">Javascript</button>
+        <button class="language" data-id="html">HTML</button>
+        <button class="language" data-id="css">CSS</button>
+        <button class="language" data-id="english">English</button>
+      </div>
   </div>
-  <style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/javascripts/typing.js"></script>
+
+<style>
+
   #modules{
     margin:auto;
     display: flex;
     justify-content: center;
     align-items: center;
-
-  }
-
-  #parentDiv{
   }
 
   body {
@@ -45,4 +53,5 @@
   .hidden {
     display: none;
   }
+
 </style>
