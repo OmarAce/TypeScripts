@@ -7,11 +7,15 @@ router.get('/login', async function(req, res) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('homepage', { title: 'TypeScript' });
+  res.render('homepage', { title: 'Type{Scripts}' });
 });
 
 router.get('/game', function(req, res, next) {
-  res.render('game', { prompt: 'prompt goes here(from db)'});
+  res.render('game');
+});
+
+router.get('/highscores', function(req, res, next) {
+  res.render('highscore');
 });
 
 router.get('/highscores', function(req, res, next) {
