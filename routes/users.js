@@ -1,19 +1,19 @@
 var express = require('express');
 const User = require('../models/User')
 var router = express.Router();
-router.post('/register', async function(req, res) {
+router.post('/register', async function (req, res) {
   try {
     const { username, password } = req.body
     const userData = await User.create({
       username,
       password
     });
-    const userDataClean = await userData.get({plain:true})
-    
+    const userDataClean = await userData.get({ plain: true })
+
     req.session.userId = userDataClean.id;
     req.session.username = userDataClean.username;
     req.session.loggedIn = true
-    req.session.save(()=> {
+    req.session.save(() => {
       res.status(200).json(userData)
     })
   } catch (err) {
@@ -21,7 +21,7 @@ router.post('/register', async function(req, res) {
     res.status(500).json(err)
   }
 })
-router.post('/logout', async function(req, res) {
+router.post('/logout', async function (req, res) {
   try {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
@@ -36,7 +36,7 @@ router.post('/logout', async function(req, res) {
   }
 })
 
-router.post('/login', async function(req, res) {
+router.post('/login', async function (req, res) {
   try {
     const { username, password } = req.body
     const userData = await User.findOne({ where: { username } })
@@ -45,7 +45,7 @@ router.post('/login', async function(req, res) {
       console.log('cannot find user')
       return res.status(400).json({ message: 'We cannot find the user!' })
     }
-    const userDataClean = await userData.get({plain:true})
+    const userDataClean = await userData.get({ plain: true })
 
     const validPassword = userData.checkPassword(password)
 
@@ -67,7 +67,7 @@ router.post('/login', async function(req, res) {
 })
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 

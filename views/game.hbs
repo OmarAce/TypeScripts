@@ -1,37 +1,36 @@
 {{!-- main game --}}
 
-    
-    
+
+
 {{!-- red timer bar at top --}}
 
 
 
-<div class="card" id='modules' style="width: 90%; height: 25rem;margin-top:10px; margin-bottom:20px;">
+<div class="card" id='modules' style="width: 70%; height: 25rem;margin-top:10px; margin-bottom:20px;">
 
   {{>prompt}}
 </div>
-<div class="card" id='modules' style="width: 90%; height: 25rem;">
+<div id='modules'>
 
   <div class="card-body">
     {{>keyboard}}
     {{!-- <h5 class="card-title">{{prompt}}</h5> --}}
-    
+
   </div>
 </div>
 
 
 <style>
- 
-  #modules{
-    margin:auto;
+  #modules {
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    border-radius: 20px;
   }
-  body{
+
+  body {
     background-image: url('/assets/cloudbackground.jpg');
     background-size: cover;
   }
-
 </style>
