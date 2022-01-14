@@ -1,5 +1,3 @@
-const db = require('../../config/connection')
-
 //Declared
 const typingDiv = document.getElementById("typing");
 const statsDiv = document.getElementById("stats");
