@@ -3,6 +3,7 @@ const typingDiv = document.getElementById("typing");
 const statsDiv = document.getElementById("stats");
 const startGameBtn = document.getElementById("start-game");
 
+// Typing Options
 const typescript = [
   'TypeScript is a superset of JavaScript which primarily provides optional static typing, classes and interfaces. One of the big benefits is to enable IDEs to provide a richer environment for spotting common errors as you type the code.',
   'Typically an array contains zero to many objects of a single type. TypeScript has special analysis around arrays which contain multiple types, and where the order in which they are indexed is important. These are called tuples.\nconst failingResponse = ["Not Found", 404];'
@@ -28,6 +29,7 @@ const english = [
   'She was walking lazily, for the fierce April sun was directly overhead. Her umbrella blocked its rays but nothing blocked the heat - the sort of raw, wild heat that crushes you with its energy.',
 ]
 
+// Language Choice
 let source = [];
 
 // Checks for language choice
@@ -40,10 +42,13 @@ $(document).on("click", ".language", function () {
   startGame(language);
 })
 
+// Starts Game with chosen Language
 const startGame = (language) => {
+  // Hides Elements
   typingDiv.innerHTML = "";
   statsDiv.innerHTML = "";
 
+  // Parses Language
   if (language == "typescript") {
     source = typescript
   } else if (language == "javascript") {
@@ -56,10 +61,12 @@ const startGame = (language) => {
     source = english
   }
 
+  // Randomly Selects from Choice Language
   const text = source[parseInt(Math.random() * source.length)];
 
-  console.log(text)
+  // console.log(text) // Would display chosen text in Console
 
+  // Splits text array apart by spaces
   const characters = text.split("").map((char) => {
     const span = document.createElement("span");
     span.innerText = char;
@@ -67,18 +74,23 @@ const startGame = (language) => {
     return span;
   });
 
+  // Controls Cursor Position
   let cursorIndex = 0;
+  // Tracks Errors
   let errors = 0;
+  // Displays Cursor Position
   let cursorCharacter = characters[cursorIndex];
   cursorCharacter.classList.add("cursor");
 
+  // Start Time Declared
   let startTime = null;
 
+  // Time start on keydown
   const keydown = ({ key }) => {
     if (!startTime) {
       startTime = new Date();
     }
-
+    // Tracks KeyCode
     const keyPressed = event.keyCode;
 
     // if correct
@@ -109,8 +121,9 @@ const startGame = (language) => {
       }
     }
 
+    //Game Ends
     if (cursorIndex >= characters.length) {
-      // game ended
+      // game ended state, calculates end time and cpm
       const endTime = new Date();
       const delta = endTime - startTime;
       const seconds = delta / 1000;
@@ -123,9 +136,7 @@ const startGame = (language) => {
         score = parseInt(characters.length * (cpm / errors));
       };
       document.getElementById("stats").innerText = `score = ${score} \n Number of Characters per Minute = ${cpm} \n errors = ${errors}`;
-      // document.removeEventListener("keydown", keydown);
-      // alert("score " + score)
-      // startGameBtn.classList.remove("hidden");
+      // If user logged in, post to score database
       if (score) {
         $.ajax("/highscores", {
           method: "POST",
@@ -136,7 +147,7 @@ const startGame = (language) => {
 
     cursorCharacter.classList.add("cursor");
   };
-
+  // Listens for start of typing
   document.addEventListener("keydown", keydown);
 };
 

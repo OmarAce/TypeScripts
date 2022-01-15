@@ -1,8 +1,11 @@
+// import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
+// encrypts data
 const bcrypt = require('bcrypt');
+// imports database
 const sequelize = require('../config/connection');
 
-// create our User model
+// Init by extending model
 class User extends Model {
     // set up method to run on instance data (per user) to check password
     checkPassword(loginPw) {
@@ -10,6 +13,7 @@ class User extends Model {
     }
   }
 
+// Model fields
 User.init(
   {
       id: {
@@ -33,7 +37,7 @@ User.init(
   
 {
     hooks: {
-      // set up beforeCreate lifecycle "hook" functionality
+      // set up beforeCreate lifecycle "hook" functionality & encrypt password
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
@@ -50,5 +54,5 @@ User.init(
     modelName: 'User'
   }
 );
-
+// export
 module.exports = User;

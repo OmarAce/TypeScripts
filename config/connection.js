@@ -1,8 +1,11 @@
+//Dependancies
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
+// Sequelize Declared
 let sequelize;
 
+// Cloud Database JawsDB, if none, Local Sequelize
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
@@ -19,4 +22,5 @@ if (process.env.JAWSDB_URL) {
   );
 }
 
+// Export
 module.exports = sequelize;

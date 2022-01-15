@@ -1,9 +1,10 @@
+// import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-
+// import our database connection from config.js
 const sequelize = require('../config/connection');
-
+// Init by extending model
 class Scores extends Model {}
-
+// Model Fields
 Scores.init(
     {
         id: {
@@ -36,5 +37,5 @@ Scores.init(
         modelName: 'Scores',
     }
 );
-
+// export
 module.exports = Scores;

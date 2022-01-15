@@ -10,8 +10,10 @@ Prompt.belongsTo(Language);
 // Languages have many prompts
 Language.hasMany(Prompt);
 
+// Scores belong to Users
 Scores.belongsTo(User);
 
+// User can have many scores
 User.hasMany(Scores);
 
 // model exports

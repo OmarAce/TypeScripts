@@ -1,21 +1,25 @@
+// Dependencies
 var express = require('express');
 const { Scores } = require('../models');
 const { User } = require('../models');
 var router = express.Router();
 
+// Session Tracker
 router.get('/login', async function (req, res) {
   res.render('login', { loggedIn: req.session.loggedIn })
 })
 
-/* GET home page. */
+// Home Page Route
 router.get('/', function (req, res, next) {
   res.render('homepage');
 });
 
+// Game Route
 router.get('/game', function (req, res, next) {
   res.render('game');
 });
 
+// High Score Route
 router.get('/highscores', async function (req, res, next) {
   const scores = await Scores.findAll({
     order: [["score", "DESC"]],
@@ -28,7 +32,7 @@ router.get('/highscores', async function (req, res, next) {
   });
 });
 
-//data route
+//data route for scores
 router.get('/api/highscores', async function (req, res) {
   const scores = await Scores.findAll({
     order: [["score", "DESC"]],
@@ -38,6 +42,7 @@ router.get('/api/highscores', async function (req, res) {
   })
 });
 
+// Method to Write to Highscores
 router.post("/highscores", async function (req, res) {
   console.log("YOUR SESSION", req.session);
   console.log("payload ", req.body)
@@ -46,7 +51,5 @@ router.post("/highscores", async function (req, res) {
   //return some feedback to ajax on FE that made the call
 })
 
-
-
-
+// Export
 module.exports = router;

@@ -1,6 +1,9 @@
+// Dependancies
 var express = require('express');
 const User = require('../models/User')
 var router = express.Router();
+
+// User Register Method
 router.post('/register', async function (req, res) {
   try {
     const { username, password } = req.body
@@ -21,6 +24,8 @@ router.post('/register', async function (req, res) {
     res.status(500).json(err)
   }
 })
+
+// User Logout
 router.post('/logout', async function (req, res) {
   try {
     if (req.session.loggedIn) {
@@ -36,6 +41,7 @@ router.post('/logout', async function (req, res) {
   }
 })
 
+// User Login
 router.post('/login', async function (req, res) {
   try {
     const { username, password } = req.body
@@ -70,5 +76,5 @@ router.post('/login', async function (req, res) {
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
-
+// Export
 module.exports = router;
