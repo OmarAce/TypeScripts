@@ -6,6 +6,8 @@
 Build an application where the user is able to practice their typing speed and accuracy while learning/practicing coding languages at the same time. In the current build, the user is able to practice, Typescripts, Javascript, HTML, CSS, and plain engligh.
 
 ![Typing Game Image](public/assets/app-demo.png)
+![Typing Game Demo](public/assets/game-demo.gif)
+
 
   ## Table of Contents 
 - [Objective](#objective)
@@ -14,7 +16,7 @@ Build an application where the user is able to practice their typing speed and a
 - [Deployment](#deployment)
 - [Githubs](#githubs)
 
-## License:
+## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
@@ -37,12 +39,11 @@ https://typescripts-btc.herokuapp.com/
 * [Express](https://www.npmjs.com/package/express)
 * [Sequelize](https://sequelize.org/)
 
-### Authors
+## Authors
 
 Contributors names and contact info:
 
-* [Runa](https://github.com/runaariga)
-* [Nick](https://github.com/nicholasamarillo)
-* [Omar](https://github.com/OmarAce)
 * [Kamyar](https://github.com/Kam-Mivehchi)
-
+* [Omar](https://github.com/OmarAce)
+* [Nick](https://github.com/nicholasamarillo)
+* [Runa](https://github.com/runaariga)
