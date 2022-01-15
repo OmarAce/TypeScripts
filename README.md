@@ -1,5 +1,11 @@
 # TYPESCRIPTS
 
+## NOTE
+
+This is a re-deploy the application TypeScripts created in a team alongside; [Nick](https://github.com/nicholasamarillo), [Kamyar](https://github.com/Kam-Mivehchi), [Runa](https://github.com/runaariga), and myself.
+
+The application is originally hosted on Kamyar's Github (https://github.com/Kam-Mivehchi) at https://github.com/Kam-Mivehchi/TypeScripts. For the full commit/revision history please refer to that repository.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Objective
