@@ -1,9 +1,21 @@
 # TYPESCRIPTS
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Objective
+Build an application where the user is able to practice their typing speed and accuracy while learning/practicing coding languages at the same time. In the current build, the user is able to practice, Typescripts, Javascript, HTML, CSS, and plain engligh.
+
+![Typing Game Image](public/assets/app-demo.png)
+
+  ## Table of Contents 
+- [Objective](#objective)
+- [License](#license)
 - [Description](#description)
 - [Deployment](#deployment)
-- [Screenshots](#screenshots)
 - [Githubs](#githubs)
+
+## License:
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
@@ -13,14 +25,24 @@ TypeScripts is a typing game for all developers, new and experienced, where they
 
 https://typescripts-btc.herokuapp.com/
 
-# Screenshots
+### Built With
 
---PLACEHOLDER--
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Node.js](https://nodejs.org/en/)
+* [Handlebars](https://handlebarsjs.com/)
+* [DOTENV](https://www.npmjs.com/package/dotenv)
+* [bcrypt](https://www.npmjs.com/package/bcrypt)
+* [Express](https://www.npmjs.com/package/express)
+* [Sequelize](https://sequelize.org/)
 
-# Githubs
+### Authors
 
-@OmarAce
-@Kam-Mivehchi
-@runaariga
-@nicholasamarillo
+Contributors names and contact info:
+
+* [Runa](https://github.com/runaariga)
+* [Nick](https://github.com/nicholasamarillo)
+* [Omar](https://github.com/OmarAce)
+* [Kamyar](https://github.com/Kam-Mivehchi)
 
